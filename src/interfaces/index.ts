@@ -5,5 +5,9 @@ interface iUser{
     email:string;
     pwd:string;
 }
+interface iCourse{
+    id:number;
+    course:string;
+}
 
-export {iUser}
+export {iUser, iCourse}

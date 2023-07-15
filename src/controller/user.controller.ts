@@ -26,7 +26,7 @@ route.put('/:id', async (req,res):Promise<void>=>{
     try {
         const {name,surname,email,pwd} = req.body;
         const {id} = req.params;
-        const data = await updateUserById(id, name, surname, email, pwd);
+        const data = await updateUserById(Number(id), name, surname, email, pwd);
         buildResponse(res, 200, data);
     } catch (error:any) {
         buildResponse(res, 400, error.message);
@@ -35,7 +35,7 @@ route.put('/:id', async (req,res):Promise<void>=>{
 route.delete('/:id', async (req,res):Promise<void>=>{
     try {
         const {id} = req.params;
-        const data = await deleteUserById(id);
+        const data = await deleteUserById(Number(id));
         buildResponse(res, 200, data);
     } catch (error:any) {
         buildResponse(res, 400, error.message);
@@ -44,7 +44,7 @@ route.delete('/:id', async (req,res):Promise<void>=>{
 route.get('/:id', async(req,res):Promise<void>=>{
     try {
         const {id} = req.params;
-        const data = await getUserById(id);
+        const data = await getUserById(Number(id));
         buildResponse(res, 200, data);
     } catch (error:any) {
         buildResponse(res, 400, error.message);
