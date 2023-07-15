@@ -1,4 +1,4 @@
-import {getCourseDB, getCourseByIdDB, createCourseDB} from '../repository/course.repository'
+import {getCourseDB, getCourseByIdDB, createCourseDB, deleteCourseByIdDB} from '../repository/course.repository'
 import { iCourse } from '../interfaces'
 
 async function getCourse():Promise<iCourse[]>{
@@ -11,6 +11,11 @@ async function getCourseById(id):Promise<iCourse[]>{
     if(!data.length) throw new Error(`no such id`);
     return data
 }
+async function deleteCourseById(id):Promise<iCourse[]>{
+    const data = await deleteCourseByIdDB(id);
+    if(!data.length) throw new Error(`no such id`);
+    return data
+}
 
 async function createCourse(course:string):Promise<iCourse[]>{
     const data = await createCourseDB(course);
@@ -18,4 +23,4 @@ async function createCourse(course:string):Promise<iCourse[]>{
     return data;
 }
 
-export {getCourse, getCourseById, createCourse}
+export {getCourse, getCourseById, createCourse, deleteCourseById}
