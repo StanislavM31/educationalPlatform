@@ -14,4 +14,10 @@ async function getCourseByIdDB(id):Promise<iCourse[]>{
     const data = (await client.query(sql,[id])).rows;
     return data;
 }
-export {getCourseDB, getCourseByIdDB}
+async function createCourseDB(course:string):Promise<iCourse[]>{
+    const client = await pool.connect();
+    const sql = `INSERT INTO courses (course) VALUES ($1) RETURNING *`;
+    const data = (await client.query(sql,[course])).rows;
+    return data;
+}
+export {getCourseDB, getCourseByIdDB, createCourseDB}

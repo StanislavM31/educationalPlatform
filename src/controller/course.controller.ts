@@ -1,6 +1,7 @@
 import express, {Request, Response, NextFunction} from 'express'
-import {getCourse, getCourseById} from '../service/course.service'
+import {getCourse, getCourseById, createCourse} from '../service/course.service'
 import buildResponse from '../helper/buildResponse';
+import isValidCourseBody from '../helper/validation';
 
 const course = express.Router();
 
@@ -16,6 +17,15 @@ course.get('/:id', async (req:Request, res:Response)=>{
     try {
         const {id} = req.params;
         const data = await getCourseById(id);
+        buildResponse(res, 200, data);
+    } catch (error:any) {
+        buildResponse(res, 400, error.message)
+    }
+})
+course.post('/', isValidCourseBody, async (req:Request, res:Response)=>{
+    try {
+        const {course} = req.body;
+        const data = await createCourse(course);
         buildResponse(res, 200, data);
     } catch (error:any) {
         buildResponse(res, 400, error.message)
