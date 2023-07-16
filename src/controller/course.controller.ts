@@ -1,5 +1,5 @@
 import express, {Request, Response} from 'express'
-import {getCourse, getCourseById, createCourse, deleteCourseById} from '../service/course.service'
+import {getCourse, getCourseById, createCourse, updateCourse, deleteCourseById} from '../service/course.service'
 import buildResponse from '../helper/buildResponse';
 import isValidCourseBody from '../helper/validation';
 
@@ -37,6 +37,16 @@ course.post('/', isValidCourseBody, async (req:Request, res:Response)=>{
         const data = await createCourse(course);
         buildResponse(res, 200, data);
     } catch (error:any) {
+        buildResponse(res, 400, error.message)
+    }
+})
+course.put('/:id', async(req:Request, res:Response)=>{
+    try{
+        const {id} = req.params;
+        const {course} = req.body;
+        const data = await updateCourse(id , course);
+        return buildResponse(res, 200, data);
+    } catch (error:any){
         buildResponse(res, 400, error.message)
     }
 })

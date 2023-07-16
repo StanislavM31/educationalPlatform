@@ -26,4 +26,13 @@ async function createCourseDB(course:string):Promise<iCourse[]>{
     const data = (await client.query(sql,[course])).rows;
     return data;
 }
-export {getCourseDB, getCourseByIdDB, createCourseDB, deleteCourseByIdDB}
+async function updateCourseDB(id:number, course:string):Promise<iCourse[]>{
+    const client = await pool.connect();
+    const sql = `UPDATE courses SET course = $1 WHERE id = $2 RETURNING *`;
+    const result = (await client.query(sql, [id, course])).rows;
+    console.log(result);
+
+    return result;
+
+}
+export {getCourseDB, getCourseByIdDB, createCourseDB, updateCourseDB, deleteCourseByIdDB}
