@@ -1,7 +1,7 @@
 import express, {Request, Response} from 'express'
 import {getCourse, getCourseById, createCourse, updateCourse, deleteCourseById} from '../service/course.service'
 import buildResponse from '../helper/buildResponse';
-import isValidCourseBody from '../helper/validation';
+import {isValidCourseBody, isValidId} from '../helper/validation';
 
 const course = express.Router();
 
@@ -40,7 +40,7 @@ course.post('/', isValidCourseBody, async (req:Request, res:Response)=>{
         buildResponse(res, 400, error.message)
     }
 })
-course.put('/:id', async(req:Request, res:Response)=>{
+course.put('/:id', isValidCourseBody, isValidId, async(req:Request, res:Response)=>{
     try{
         const {id} = req.params;
         const {course} = req.body;
