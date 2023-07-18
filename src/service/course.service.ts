@@ -19,11 +19,6 @@ async function deleteCourseById(id): Promise<iCourse[]> {
 
 async function createCourse(course: string): Promise<iCourse[]> {
     const data = await createCourseDB(course);
-    const array:iCourse[] = await getCourse();
-    array.forEach(element => {
-        if (element.course == course) throw new Error(`this course already exists`);
-    });
-    if (!data.length) throw new Error(`курс не сохранен`);
     return data;
 }
 async function updateCourse(course: string, id: number): Promise<iCourse[]> {
