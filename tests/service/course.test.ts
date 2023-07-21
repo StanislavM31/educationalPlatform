@@ -12,6 +12,26 @@ describe('createCourse function', () => {
         expect(result).toEqual([{ id: 1, course: "test_course" }]);
         expect(result).toHaveLength(1);
     })
+    test('error', async ()=>{
+        const functRepo = jest.spyOn(repository, "createCourseDB");
+        functRepo.mockResolvedValue([]);
+        try {
+            const result = await createCourse('test_course_1');
+        } catch (error:any) {
+            expect(functRepo).toHaveBeenCalled();
+            expect(error.message).toBe('failed to save course')
+        }
+    })
+    test('error', async ()=>{
+        const functRepo = jest.spyOn(repository, "getCourseDB");
+        functRepo.mockResolvedValue([]);
+        try {
+            await getCourse();
+        } catch (error:any) {
+            expect(functRepo).toHaveBeenCalled();
+            expect(error.message).toBe(`table 'courses' is empty`)
+        }
+    })
 })
 
 describe('getCourse', () => {

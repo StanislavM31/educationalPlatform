@@ -37,7 +37,7 @@ async function createCourseDB(course: string): Promise<iCourse[]> {
         return data;
     } catch (error:any) {
         await client.query("ROLLBACK");
-        return error.message;
+        return [];
     }
 }
 async function updateCourseDB(id: number, course: string): Promise<iCourse[]> {

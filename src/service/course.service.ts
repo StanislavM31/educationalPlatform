@@ -19,6 +19,7 @@ async function deleteCourseById(id): Promise<iCourse[]> {
 
 async function createCourse(course: string): Promise<iCourse[]> {
     const data = await createCourseDB(course);
+    if(!data.length) throw new Error(`failed to save course`)
     return data;
 }
 async function updateCourse(course: string, id: number): Promise<iCourse[]> {
