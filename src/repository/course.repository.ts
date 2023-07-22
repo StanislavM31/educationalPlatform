@@ -24,15 +24,8 @@ async function createCourseDB(course: string): Promise<iCourse[]> {
     const client = await pool.connect();
     try {
         await client.query("BEGIN");
-        const array:iCourse[] = await getCourseDB();
         const sql = `INSERT INTO courses (course) VALUES ($1) RETURNING *`;
         const data = (await client.query(sql, [course])).rows;
-        array.forEach(element => {
-            console.log(element);
-            console.log(course);
-
-            if (element.course == course) throw new Error(`this course already exists`);
-        });
         await client.query("COMMIT")
         return data;
     } catch (error:any) {

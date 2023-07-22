@@ -1,6 +1,5 @@
 import { createCourse, deleteCourseById, getCourse, getCourseById, updateCourse } from "../../src/service/course.service"
 import * as repository from '../../src/repository/course.repository'
-import exp from "constants";
 
 describe('createCourse function', () => {
     test('Success', async () => {
@@ -22,16 +21,6 @@ describe('createCourse function', () => {
             expect(error.message).toBe('failed to save course')
         }
     })
-    test('error', async ()=>{
-        const functRepo = jest.spyOn(repository, "getCourseDB");
-        functRepo.mockResolvedValue([]);
-        try {
-            await getCourse();
-        } catch (error:any) {
-            expect(functRepo).toHaveBeenCalled();
-            expect(error.message).toBe(`table 'courses' is empty`)
-        }
-    })
 })
 
 describe('getCourse', () => {
@@ -43,6 +32,16 @@ describe('getCourse', () => {
         expect(funcRepo).toHaveBeenCalled(); //проверка, что что функция вызывалась
         expect(result).toEqual([{ id: 1, course: "course1" }, { id: 2, course: "course2" }, { id: 3, course: "course3" }]);
         expect(result.length).toBeGreaterThan(0);
+    })
+    test('error', async ()=>{
+        const functRepo = jest.spyOn(repository, "getCourseDB");
+        functRepo.mockResolvedValue([]);
+        try {
+            await getCourse();
+        } catch (error:any) {
+            expect(functRepo).toHaveBeenCalled();
+            expect(error.message).toBe(`table 'courses' is empty`)
+        }
     })
 })
 
