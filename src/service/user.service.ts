@@ -3,11 +3,12 @@ import {iUser} from '../interfaces/index'
 
 async function createUser(name:string,surname:string,email:string,pwd:string):Promise<iUser[]>{
     const data = await createUserDB(name,surname,email,pwd);
-    if(!data) throw new Error(`empty user`)
+    if(!data) throw new Error(`failed to save new user`)
     return data;
 }
 async function getAllUsers():Promise<iUser[]> {
     const data = await getAllUsersDB();
+    if (!data.length) throw new Error(`table 'users' is empty`);
     return data
 }
 async function getUserById(id:number):Promise<iUser[]>{
