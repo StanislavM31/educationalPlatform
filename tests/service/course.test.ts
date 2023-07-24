@@ -18,6 +18,7 @@ describe('createCourse function', () => {
             const result = await createCourse('test_course_1');
         } catch (error:any) {
             expect(functRepo).toHaveBeenCalled();
+            //expect(error.message).toBe('this course already exists')
             expect(error.message).toBe('failed to save course')
         }
     })

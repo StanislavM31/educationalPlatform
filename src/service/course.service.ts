@@ -18,14 +18,16 @@ async function deleteCourseById(id): Promise<iCourse[]> {
 }
 
 async function createCourse(course: string): Promise<iCourse[]> {
-    let array:iCourse[] = await getCourse();
-    array.forEach(element => {
-        console.log(element);
-        console.log(course);
-        if (element.course == course) throw new Error(`this course already exists`);
-    });
-    const data = await createCourseDB(course);
-    if(!data.length) throw new Error(`failed to save course`)
+    let data: iCourse[] = await createCourseDB(course);;
+    /* let array:iCourse[] = await getCourse();
+    array.filter(element => {
+            if(element.course == course) return element
+        });
+        if(array.length>0){
+            throw new Error(`this course already exists`);
+        } */
+
+    if (!data.length) throw new Error(`failed to save course`)
     return data;
 }
 async function updateCourse(course: string, id: number): Promise<iCourse[]> {
