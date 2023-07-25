@@ -41,7 +41,7 @@ describe('getAllUsers_function', () => {
     })
 })
 
-describe('createUser_function', () => {
+/* describe('createUser_function', () => {
     test('Success', async () => {
         const funcRepo = jest.spyOn(repository, 'createUserDB');
         funcRepo.mockResolvedValue([{
@@ -76,8 +76,42 @@ describe('createUser_function', () => {
             expect(error.message).toBe('failed to save new user')
         }
     })
+}) */
+describe('createUser_function', () => {
+    test('Success', async () => {
+        const funcRepo = jest.spyOn(repository, "createUserDB");
+        funcRepo.mockResolvedValue([
+            {
+                id: 1,
+                "name": "test_name",
+                "surname": "test_surname",
+                "email": "test@gmail.com",
+                "pwd": "123456789",
+            }
+        ]);
+        const result = await createUser("test_name", "test_surname", "test@gmail", "123456789");
+        expect(result).toEqual([
+            {
+                id: 1,
+                "name": "test_name",
+                "surname": "test_surname",
+                "email": "test@gmail.com",
+                "pwd": "123456789",
+            }
+        ])
+        expect(result.length).toBe(1);
+        expect(funcRepo).toHaveBeenCalled();
+    })
+    test('error', async ()=>{
+        const funcRepo = jest.spyOn(repository, "createUserDB");
+        funcRepo.mockResolvedValue([]);
+        try {
+            await createUser("test_name", "test_surname", "test@gmail", "123456789");
+        } catch (error:any) {
+            expect(error.message).toBe('failed to save new user')
+        }
+    })
 })
-
 describe("getUserById_function", () => {
     test('Success', async () => {
         const funcRepo = jest.spyOn(repository, "getUserByIdDB");
@@ -92,7 +126,7 @@ describe("getUserById_function", () => {
         ])//предполагаемый возвращаемый результат
         const result = await getUserById(1);
         expect(funcRepo).toHaveBeenCalled();
-        expect(result).toEqual([               {
+        expect(result).toEqual([{
             "id": 1,
             "name": "TestName",
             "surname": "TestSurname",
@@ -135,11 +169,11 @@ describe("deleteUserById_function", () => {
     test("Success", async () => {
         const funcRepo = jest.spyOn(repository, "deleteUserByIdDB");
         funcRepo.mockResolvedValue([{
-                "id": 1,
-                "name": "test_user",
-                "surname": "test_surname",
-                "email": "testuser@gmail.com",
-                "pwd": "123"
+            "id": 1,
+            "name": "test_user",
+            "surname": "test_surname",
+            "email": "testuser@gmail.com",
+            "pwd": "123"
         }]);
         const result = await deleteUserById(1);
         expect(funcRepo).toHaveBeenCalled();
@@ -149,7 +183,7 @@ describe("deleteUserById_function", () => {
             "surname": "test_surname",
             "email": "testuser@gmail.com",
             "pwd": "123"
-    }]);
+        }]);
         expect(result.length).toBeGreaterThan(0);
     })
 })
