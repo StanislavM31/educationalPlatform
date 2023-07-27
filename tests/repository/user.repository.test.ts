@@ -1,3 +1,4 @@
+import { query } from "express";
 import { getAllUsersDB, createUserDB, getUserByIdDB, deleteUserByIdDB, updateUserByIdDB } from "../../src/repository/user.repository";
 
 const mockClient = {
@@ -13,7 +14,7 @@ jest.mock("pg", () => {
         })
     }
 })
-afterEach(()=>{
+afterEach(() => {
     jest.clearAllMocks();
 })
 
@@ -69,5 +70,31 @@ describe("getAllUsersDB_function", () => {
             }
         ])
         expect(mockClient.query).toHaveBeenCalled();
+    })
+})
+describe("getUserByIdDB", () => {
+    test("Success", async () => {
+        mockClient.query.mockResolvedValue(
+            {
+                rows: [{
+                    "id": 10,
+                    "name": "new_user1",
+                    "surname": "abc",
+                    "email": "new_user1@gmail.com",
+                    "pwd": "$2b$04$zY3ihxRmp5MB4jrlYCjLKeqSWOAJl5Q2mn6Ck7zXQRopmfdmPQVYq"
+                }]
+            }
+        )
+        const result = await getUserByIdDB(10);
+        expect(mockClient.query).toHaveBeenCalled();
+        expect(result).toEqual([
+            {
+                "id": 10,
+                "name": "new_user1",
+                "surname": "abc",
+                "email": "new_user1@gmail.com",
+                "pwd": "$2b$04$zY3ihxRmp5MB4jrlYCjLKeqSWOAJl5Q2mn6Ck7zXQRopmfdmPQVYq"
+            }
+        ])
     })
 })
