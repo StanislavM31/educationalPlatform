@@ -1,5 +1,5 @@
 import { getCourseDB, createCourseDB, getCourseByIdDB, updateCourseDB, deleteCourseByIdDB } from '../../src/repository/course.repository'
-import { deleteCourseById } from '../../src/service/course.service'
+
 
 const mockClient = {
     query: jest.fn()
