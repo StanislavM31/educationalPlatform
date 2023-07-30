@@ -1,4 +1,3 @@
-import { query } from "express";
 import { getAllUsersDB, createUserDB, getUserByIdDB, deleteUserByIdDB, updateUserByIdDB } from "../../src/repository/user.repository";
 
 const mockClient = {
@@ -135,6 +134,25 @@ describe("updateUserByIdDB", () => {
             }
         )
         const result = await updateUserByIdDB(4, "user_updated", "username", "user@gmail.com_updated", "$2b$04$zY");
+        expect(result).toEqual(mock);
+        expect(mockClient.query).toHaveBeenCalled();
+    })
+})
+describe("createUserDB", () => {
+    test("Success", async () => {
+        const mock = {
+            "id": 7,
+            "name": "happy_user",
+            "surname": "s",
+            "email": "husers@gmail.com",
+            "pwd": "wq12qw"
+        }
+        mockClient.query.mockResolvedValue(
+            {
+                rows: mock
+            }
+        )
+        const result = await createUserDB("happy_user","s","husers@gmail.com","wq12qw");
         expect(result).toEqual(mock);
         expect(mockClient.query).toHaveBeenCalled();
     })
