@@ -99,7 +99,7 @@ describe("getUserByIdDB", () => {
     })
 })
 
-describe("deleteCourseDB_function", () => {
+describe("deleteUserByIdDB", () => {
     test("Success", async () => {
         const mock = [
             {
@@ -115,8 +115,27 @@ describe("deleteCourseDB_function", () => {
                 rows: mock
             }
         )
-        const result = await getUserByIdDB(3);
+        const result = await deleteUserByIdDB(3);
         expect(mockClient.query).toHaveBeenCalled();
         expect(result).toEqual(mock);
+    })
+})
+describe("updateUserByIdDB", () => {
+    test("Success", async () => {
+        const mock = {
+            "id": 4,
+            "name": "user_updated",
+            "surname": "username",
+            "email": "user@gmail.com_updated",
+            "pwd": "$2b$04$zY"
+        }
+        mockClient.query.mockResolvedValue(
+            {
+                rows: mock
+            }
+        )
+        const result = await updateUserByIdDB(4, "user_updated", "username", "user@gmail.com_updated", "$2b$04$zY");
+        expect(result).toEqual(mock);
+        expect(mockClient.query).toHaveBeenCalled();
     })
 })
