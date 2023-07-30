@@ -4,6 +4,15 @@ const mockClient = {
     query: jest.fn()
 }
 
+/* jest.mock("pg", () => {
+    return {
+        Pool: jest.fn(() => {
+            return {
+                connect: jest.fn(() => mockClient)
+            }
+        })
+    }
+}) */
 jest.mock("pg", () => {
     return {
         Pool: jest.fn(() => {
