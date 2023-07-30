@@ -98,3 +98,25 @@ describe("getUserByIdDB", () => {
         ])
     })
 })
+
+describe("deleteCourseDB_function", () => {
+    test("Success", async () => {
+        const mock = [
+            {
+                "id": 3,
+                "name": "user_to_delete",
+                "surname": "username",
+                "email": "user_to_delete@gmail.com",
+                "pwd": "$2b$04$zY3ihxRmp5MB4jrlYCjLKeqSWOAJl5Q2mn6Ck7zXQRopmfdmPQVYq"
+            }
+        ]
+        mockClient.query.mockResolvedValue(
+            {
+                rows: mock
+            }
+        )
+        const result = await getUserByIdDB(3);
+        expect(mockClient.query).toHaveBeenCalled();
+        expect(result).toEqual(mock);
+    })
+})

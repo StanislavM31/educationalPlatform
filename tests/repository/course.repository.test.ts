@@ -28,7 +28,6 @@ describe("getCourseDB_function", () => {
 
         expect(result).toEqual([{ id: 1, course: "test_course_1" }, { id: 2, course: "test_course_2" }, { id: 3, course: "test_course_3" }]);
     })
-
 })
 
 describe("createCourseDB_function", () => {
