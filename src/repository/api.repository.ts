@@ -1,5 +1,6 @@
 import pool from '../db';
 import { iUser } from '../interfaces';
+import {deleteUserByIdDB} from '../../src/repository/user.repository'
 
 async function registrationDB(name: string, surname: string, email: string, pwd: string): Promise<iUser[]> {
     const client = await pool.connect();
@@ -14,6 +15,21 @@ async function registrationDB(name: string, surname: string, email: string, pwd:
         return [];
     }
 }
+async function deleteRegisteredUserDB(id: number): Promise<iUser[]> {
+/*     const client = await pool.connect();
+    try {
+        await client.query('BEGIN');
+        const sql = `DELETE FROM users WHERE id = $1 RETURNING *`;
+        const result = (await client.query(sql, [id])).rows;
+        await client.query("COMMIT")
+        return result;
+    } catch (error) {
+        await client.query('ROLLBACK');
+        return [];
+    } */
+    const data = await deleteUserByIdDB(id);
+    return data
+}
 async function getByEmail(email: string): Promise<iUser[]> {
     const client = await pool.connect();
     const sql = `SELECT * FROM users WHERE email = $1`;
@@ -22,4 +38,4 @@ async function getByEmail(email: string): Promise<iUser[]> {
 }
 
 
-export { registrationDB, getByEmail };
+export { registrationDB, getByEmail, deleteRegisteredUserDB };

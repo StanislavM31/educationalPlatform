@@ -1,12 +1,22 @@
 import express, {Request, Response} from 'express';
 import buildResponse from '../helper/buildResponse';
 import {registration, authorizationUser} from '../service/api.service';
+import {deleteUserById} from '../service/user.service'
 const api = express.Router();
 
 api.post('/registration', async (req:Request, res:Response):Promise<void>=>{
     try {
         const{name, surname, email, pwd} = req.body;
         const data = await registration(name, surname, email, pwd);
+        buildResponse(res, 200, data);
+    } catch (error:any) {
+        buildResponse(res, 400, error.message);
+    }
+})
+api.delete('/registration/:id', async (req:Request, res:Response):Promise<void>=>{
+    try {
+        const{id} = req.params;
+        const data = await deleteUserById(Number(id));
         buildResponse(res, 200, data);
     } catch (error:any) {
         buildResponse(res, 400, error.message);
