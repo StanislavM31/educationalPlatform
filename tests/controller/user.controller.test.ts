@@ -20,3 +20,15 @@ test('GET/:id', async () => {
     expect(res.status).toBe(200);
     expect(res.body.length).toBe(1);
 })
+
+test('UPDATE', async () => {
+    const res = await request(app).put(`/user/${id}`).send({ name: "test_user_updated", surname: "test_asdf", email: "test_user_asdf_email@gmail.com", pwd: "12345_updated" });
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual([{ name: "test_user_updated", surname: "test_asdf", email: "test_user_asdf_email@gmail.com", pwd: "12345_updated", id: id }])
+})
+
+test("DELETE", async () => {
+    const res = await request(app).delete(`/user/${id}`);
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual([{ id: id, name: "test_user_updated", surname: "test_asdf", email: "test_user_asdf_email@gmail.com", pwd: "12345_updated" }])
+})
