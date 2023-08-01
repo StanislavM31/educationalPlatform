@@ -5,9 +5,6 @@ let id;
 
 test('POST', async () => {
     const res = await request(app).post('/course').send({course: "javascript"})
-    /*     console.log('============');
-        console.log(res);
-        console.log('============'); */
     id = res.body[0].id;
     expect(res.status).toBe(200);
     expect(res.body.length).toBe(1)
@@ -28,8 +25,6 @@ test('Get/:id', async () => {
 test('Update', async ()=>{
     const res = await request(app).put(`/course/${id}`).send({course: "javascript_updated"})
     expect(res.status).toBe(200);
-    console.log(res.body);
-
     expect(res.body).toEqual([{id: id, course:"javascript_updated"}]);
     expect(res.body.length).toBe(1);
 })

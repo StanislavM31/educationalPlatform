@@ -29,7 +29,7 @@ const config: Config.InitialOptions = {
   transform: {
     '^.+\\.ts$': 'ts-jest',
   },
-  verbose: true,
+  verbose: false,
 };
 
 export default config;
