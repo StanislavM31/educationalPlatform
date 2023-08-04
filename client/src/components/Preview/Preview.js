@@ -4,9 +4,9 @@ function Preview() {
   return (
     <div className={style.wrapper}>
       <div className={style.info}>
-        <p>E-COURSE PLATFORM</p>
-        <h1>Learning and teaching online,made easy.</h1>
-        <p>Any subject, in any language, on any device, for all ages!</p>
+        <p className={style.ecourse}>E-COURSE PLATFORM</p>
+        <h1>Learning and teaching online, made easy.</h1>
+        <p className={style.text}>Any subject, in any language, on any device, for all ages!</p>
         <div className={style.btnAbout}>About platform</div>
         <div className={style.statistic}>
             <div>

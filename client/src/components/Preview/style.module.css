@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Montserrat:wght@400;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding-top: 118px;
+  width: 1220px;
+}
+.info .ecourse {
+  color: #2b788b;
+  font: 700 16px "Montserrat";
+}
+.info h1 {
+  margin-top: 24px;
+  width: 500px;
+  color: black;
+  font: 400 56px "Dela Gothic One";
+  line-height: 120%; /* 67.2px */
+  letter-spacing: -2.24px;
+}
+.info .text {
+  margin-top: 30px;
+  color: #757575;
+  font: 600 16px "Montserrat";
+}
+.btnAbout {
+  margin-top: 32px;
+  color: #2b788b;
+  display: inline-block;
+  padding: 14px 22px;
+  border-radius: 100px;
+  background-color: #c3dce3;
+  font: 700 16px "Montserrat";
+}
+.btnAbout:hover {
+  cursor: pointer;
+}
+.image {
+  width: 933px;
+  height: 601px;
+  background-image: url(./Frame_24.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.statistic div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font: 400 40px "Dela Gothic One";
+}
+.statistic div .thunder {
+  width: 24px;
+  height: 30px;
+  background: url("./Frame\ 35271.svg") no-repeat;
+}
+.statistic div span {
+  color: #2b788b;
+}
+.statistic p {
+  color: #585858;
+  font: 600 16px "Montserrat";
+}
