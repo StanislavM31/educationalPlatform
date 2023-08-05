@@ -9,7 +9,6 @@
   flex-direction: row;
   align-items: flex-start;
   padding-top: 118px;
-  width: 1220px;
 }
 .info .ecourse {
   color: #2b788b;
@@ -47,6 +46,9 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+.statistic {
+  margin-top: 48px;
 }
 .statistic div {
   display: flex;
