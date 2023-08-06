@@ -1,0 +1,50 @@
+.wrapper{
+    margin: 2% auto;
+    width: 1220px;
+}
+.wrapper .options {
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper .options div {
+  display: flex;
+  gap: 20px;
+}
+.wrapper .options div p {
+  color: #757575;
+  font: 600 14px "Montserrat";
+}
+.wrapper .line{
+    background-color: #E0E0E0;
+    height: 2px;
+    width: 100%;
+    margin: 15px 0;
+}
+.icons {
+  display: flex;
+  gap: 20px;
+}
+.icons .icon_1 {
+  background: url("./assets/Frame\ 30.png") no-repeat;
+  width: 30px;
+  height: 24px;
+}
+.icons .icon_2 {
+  background: url("./assets/Frame\ 31.png") no-repeat;
+  width: 30px;
+  height: 24px;
+}
+.icons .icon_3 {
+  background: url("./assets/Frame\ 33.png") no-repeat;
+  width: 30px;
+  height: 24px;
+}
+.network{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.network p {
+    color: #757575;
+    font: 600 12px "Montserrat";
+}

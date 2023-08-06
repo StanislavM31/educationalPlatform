@@ -8,6 +8,7 @@
   padding-top: 118px;
   margin: auto;
   width: 1220px;
+  margin: 6% auto;
 }
 .info .ecourse {
   color: #2b788b;
@@ -67,14 +68,16 @@
   color: #585858;
   font: 600 16px "Montserrat";
 }
-.wrapperBCG{
-  background-color: #FFF;
+.wrapperBCG {
+  background-color: #fff;
 }
 .language {
   margin: auto;
   display: flex;
   justify-content: space-between;
   width: 1220px;
+  margin: auto;
+  padding: 7% 0;
 }
 .imgLanguages {
   background: url(./assets/image\ 8.png) no-repeat;
@@ -82,7 +85,7 @@
   width: 580px;
   height: 445px;
 }
-.language .information{
+.language .information {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -95,7 +98,6 @@
 .language .information p {
   color: #757575;
   font: 600 18px "Montserrat";
-
 }
 .language .btnImgs {
   display: flex;
@@ -112,4 +114,40 @@
   background-size: contain;
   width: 172px;
   height: 145px;
+}
+.knowledge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1220px;
+  margin: 6% auto;
+}
+.knowledgeText {
+  width: 475px;
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+}
+.knowledgeText h1 {
+  color: black;
+  font: 400 48px Dela Gothic One;
+}
+.knowledgeText p {
+  color: #757573;
+  font: 600 18px "Montserrat";
+}
+.knowledge .buttonKnlg {
+  width: 131px;
+  text-align: center;
+  border-radius: 100px;
+  background-color: #c3dce3;
+  color: #2b788b;
+  font: 700 16px "Montserrat";
+  padding: 14px 0 ;
+}
+.knowledgeTextImg {
+  background: url("./assets/image\ 2.png") no-repeat;
+  background-size: contain;
+  width: 588px;
+  height: 473px;
 }

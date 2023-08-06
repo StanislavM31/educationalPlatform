@@ -25,17 +25,25 @@ function Preview() {
       </div>
 
       <div className={style.wrapperBCG}>
-      <div className={style.language}>
-        <div className={style.imgLanguages}></div>
-        <div className={style.information}>
-          <h1>Learn a language in a playful way</h1>
-          <p>Make learning programming languages more fun with mini-games</p>
-          <div className={style.btnImgs}>
-            <div className={style.imgSprints}></div>
-            <div className={style.imgTasks}></div>
+        <div className={style.language}>
+          <div className={style.imgLanguages}></div>
+          <div className={style.information}>
+            <h1>Learn a language in a playful way</h1>
+            <p>Make learning programming languages more fun with mini-games</p>
+            <div className={style.btnImgs}>
+              <div className={style.imgSprints}></div>
+              <div className={style.imgTasks}></div>
+            </div>
           </div>
         </div>
       </div>
+      <div className={style.knowledge}>
+        <div className={style.knowledgeText}>
+          <h1>Increase your knowledge</h1>
+          <p>Traditional and new effective approaches to learning languages</p>
+        <div className={style.buttonKnlg}>Textbook →</div>
+        </div>
+        <div className={style.knowledgeTextImg}></div>
       </div>
     </div>
   );
