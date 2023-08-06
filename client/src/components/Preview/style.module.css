@@ -130,7 +130,7 @@
 }
 .knowledgeText h1 {
   color: black;
-  font: 400 48px Dela Gothic One;
+  font: 400 48px "Dela Gothic One";
 }
 .knowledgeText p {
   color: #757573;
@@ -143,11 +143,52 @@
   background-color: #c3dce3;
   color: #2b788b;
   font: 700 16px "Montserrat";
-  padding: 14px 0 ;
+  padding: 14px 0;
 }
-.knowledgeTextImg {
+.knowledge .knowledgeTextImg {
   background: url("./assets/image\ 2.png") no-repeat;
   background-size: contain;
   width: 588px;
   height: 473px;
+}
+.knowledgeText .buttonKnlg {
+  cursor: pointer;
+}
+.progress {
+  display: flex;
+  justify-content: space-between;
+  width: 1220px;
+  padding: 7% 0;
+  margin: 6% auto; /* ? */
+}
+.progressImg {
+  background: url("./assets/image\ 1.png") no-repeat;
+  background-size: contain;
+  width: 680px;
+  height: 409px;
+}
+.progressText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 20px;
+}
+.progressText h1 {
+  font: 400 48px "Dela Gothic One";
+}
+.progressText p {
+  color: #757573;
+  font: 600 18px "Montserrat";
+}
+.progress .progressBtn {
+  width: 131px;
+  text-align: center;
+  border-radius: 100px;
+  background-color: #c3dce3;
+  color: #2b788b;
+  font: 600 16px "Montserrat";
+  padding: 14px 0;
+}
+.progress .progressBtn:hover {
+  cursor: pointer;
 }
