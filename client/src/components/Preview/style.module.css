@@ -1,14 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Montserrat:wght@400;600;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.wrapper {
+.preview {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   padding-top: 118px;
+  margin: auto;
+  width: 1220px;
 }
 .info .ecourse {
   color: #2b788b;
@@ -59,7 +58,7 @@
 .statistic div .thunder {
   width: 24px;
   height: 30px;
-  background: url("./Frame\ 35271.svg") no-repeat;
+  background: url("./assets/Frame\ 35271.svg") no-repeat;
 }
 .statistic div span {
   color: #2b788b;
@@ -67,4 +66,50 @@
 .statistic p {
   color: #585858;
   font: 600 16px "Montserrat";
+}
+.wrapperBCG{
+  background-color: #FFF;
+}
+.language {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 1220px;
+}
+.imgLanguages {
+  background: url(./assets/image\ 8.png) no-repeat;
+  background-size: contain;
+  width: 580px;
+  height: 445px;
+}
+.language .information{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 488px;
+  gap: 10px;
+}
+.language .information h1 {
+  font: 400 48px "Dela Gothic One";
+}
+.language .information p {
+  color: #757575;
+  font: 600 18px "Montserrat";
+
+}
+.language .btnImgs {
+  display: flex;
+  gap: 20px;
+}
+.language .imgSprints {
+  background: url("./assets/Group\ 11.png") no-repeat;
+  background-size: contain;
+  width: 131px;
+  height: 145px;
+}
+.language .imgTasks {
+  background: url("./assets/Group\ 10.png") no-repeat;
+  background-size: contain;
+  width: 172px;
+  height: 145px;
 }

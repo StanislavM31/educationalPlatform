@@ -21,8 +21,9 @@ code {
   color: black;
 }
 body{
-  width: 1220px;
+  /* width: 1220px; */
   margin: auto;
+  background-color: #F6F5F4;
 }
 
 a {
