@@ -12,16 +12,18 @@
 .wrapper .btns {
   display: flex;
   align-items: center;
-  gap: 24px
+  gap: 24px;
 }
 .wrapper .btns .loginBtn {
   color: #000;
   font: 700 16px "Montserrat";
 }
 .wrapper .btns .regBtn {
-    color: #fff;
-    font: 700 16px "Montserrat";
-    background-color: #2B788B;
-    padding: 13px 21px;
-    border-radius: 14px;
+  background-color: #2b788b;
+  border-radius: 14px;
+  padding: 13px 21px;
+}
+.wrapper .btns .regBtn a {
+  color: #fff;
+  font: 700 16px "Montserrat";
 }
