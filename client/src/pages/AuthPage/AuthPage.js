@@ -3,7 +3,7 @@ import Header from "../../components/Header/Header";
 import style from "./style.module.css";
 
 function AuthPage() {
-  const arr = ["email", "pwd"];
+  const arr = ["email", "password"];
   const result = arr.map((el) => (
     <div>
       <input type="text" placeholder={el} />

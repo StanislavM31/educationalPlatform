@@ -3,7 +3,7 @@
   width: 1220px;
   margin: 6% auto;
   justify-content: space-between;
-  
+  align-items: center;
 }
 .login h1 {
   color: black;
