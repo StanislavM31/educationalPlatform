@@ -1,5 +1,9 @@
 .login {
   display: flex;
+  width: 1220px;
+  margin: 6% auto;
+  justify-content: space-between;
+  
 }
 .login h1 {
   color: black;
