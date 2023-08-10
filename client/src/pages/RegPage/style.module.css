@@ -26,9 +26,8 @@
 .signUpImg {
   width: 481px;
   height: 320px;
-  background-image: url("./assets/image\ 33.png") no-repeat;
+  background: url("./assets/image\ 33.png") no-repeat;
   background-size: contain;
-  border:1px solid red;
 }
 .signUpBtn {
   width: 110px;
