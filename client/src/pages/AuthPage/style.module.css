@@ -1,16 +1,16 @@
-.wrapper {
+.login {
   display: flex;
 }
-.wrapper h1 {
+.login h1 {
   color: black;
   font: 400 56px "Dela Gothic One";
 }
-.wrapper .signUpinfo {
+.login .loginInfo {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.wrapper div input {
+.login div input {
   width: 519px;
   height: 60px;
   padding: 7px 20px;
@@ -19,22 +19,18 @@
   line-height: 31px;
   font: 400 20px "Open Sans";
 }
-.wrapper div input:checked {
-  background-color: #b2b3b2;
-}
-
-.signUpImg {
+.loginImg {
   width: 481px;
   height: 320px;
   background-image: url("./assets/image\ 33.png") no-repeat;
   background-size: contain;
-  border:1px solid red;
+  border: 1px solid red;
 }
-.signUpBtn {
-  width: 110px;
-  padding: 14px 22px;
-  border-radius: 100px;
-  text-align: center;
-  background-color: #2B788B;
-  color: #fff;
-}
+.loginUpBtn {
+    width: 110px;
+    padding: 14px 22px;
+    border-radius: 100px;
+    text-align: center;
+    background-color: #2B788B;
+    color: #fff;
+  }
