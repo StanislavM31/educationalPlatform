@@ -37,6 +37,10 @@
   padding: 14px 22px;
   border-radius: 100px;
   text-align: center;
-  background-color: #2B788B;
-  color: #fff;
+  background-color: #c3dce3;
+  color: #2b788b;
+  font: 700 16px "Montserrat";
+}
+.signUpBtn:hover {
+  cursor: pointer;
 }

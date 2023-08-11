@@ -28,13 +28,16 @@
   height: 320px;
   background: url("./assets/image\ 33.png") no-repeat;
   background-size: contain;
-
 }
 .loginUpBtn {
-    width: 110px;
-    padding: 14px 22px;
-    border-radius: 100px;
-    text-align: center;
-    background-color: #2B788B;
-    color: #fff;
-  }
+  width: 110px;
+  padding: 14px 22px;
+  border-radius: 100px;
+  text-align: center;
+  background-color: #c3dce3;
+  color: #2b788b;
+  font: 700 16px "Montserrat";
+}
+.loginUpBtn:hover {
+  cursor: pointer;
+}
