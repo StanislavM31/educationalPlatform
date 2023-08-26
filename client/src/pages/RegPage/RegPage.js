@@ -10,9 +10,9 @@ function RegPage() {
     {name:"", surname:"", email:"", pwd:""});
 
   const arr = ["name", "surname", "email", "pwd"];
-  function show(){
-
-    console.log(value);
+  async function sendData(){
+    const result = await axios.post('http://localhost:3001/api/registration', value)
+    console.log(result);
   }
   return (
     <div>
@@ -22,7 +22,7 @@ function RegPage() {
         <div className={style.signUpinfo}>
           <h1>Sign Up</h1>
           <Input arr = {arr} value={value} setValue={setValue}/>
-          <div className={style.signUpBtn} onClick={show}>Sign Up</div>
+          <div className={style.signUpBtn} onClick={sendData}>Sign Up</div>
         </div>
 
         <div className={style.signUpImg}></div>
