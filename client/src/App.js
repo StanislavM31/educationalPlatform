@@ -4,6 +4,7 @@ import {Routes, Route} from 'react-router-dom'
 import RegPage from './pages/RegPage/RegPage'
 import AuthPage from './pages/AuthPage/AuthPage';
 
+
 function App() {
   return (
     <Routes>

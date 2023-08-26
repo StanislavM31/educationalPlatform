@@ -1,20 +1,18 @@
 import style from "./style.module.css";
+import Options from "./Options"
+import Icons from "./Icons";
 
 function Footer() {
+
   return (
     <div className={style.wrapper}>
       <div className={style.options}>
         <div>
-          <p>Home</p>
-          <p>Textbook</p>
-          <p>Statistics</p>
-          <p>Sprint</p>
+          <Options data={["home", 'Textbook', "Statistics", "Sprint"]}/>
         </div>
 
         <div>
-          <p>Alex</p>
-          <p>Gabriel</p>
-          <p>Marcus</p>
+          <Options data={["Alex", "Gabriel", "Marcus"]}/>
         </div>
       </div>
 
@@ -22,9 +20,7 @@ function Footer() {
 
       <div className={style.network}>
         <div className={style.icons}>
-          <div className={style.icon_1}></div>
-          <div className={style.icon_2}></div>
-          <div className={style.icon_3}></div>
+          <Icons data={["icon_1", "icon_2", "icon_3"]}/>
         </div>
 
         <p>©2021 Hschool. Project for Hschool.</p>
