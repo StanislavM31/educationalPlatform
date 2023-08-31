@@ -2,26 +2,27 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import style from "./style.module.css";
 import { Pagination } from "@mui/material";
-import array from "./array";
+import array from "../../storage/course.json";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 
 function StudentPage() {
   const [elements, setElements] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const elementsPerPage = 4;
+  const elementsPerPage = 3;
 
-  useEffect(()=> setElements(array), [currentPage])
+  useEffect(() => setElements(array), [currentPage]);
 
   //Логика расчета элементов для отображения
   const indexLastElement = currentPage * elementsPerPage; //1*3, 2*3, 3*3
-  const indexFirstElement = indexLastElement - elementsPerPage;//3-3, 6-3, 9-3
-  const currentElements = elements.slice(indexFirstElement, indexLastElement);//slice(0,3); 3,6; 6,9
+  const indexFirstElement = indexLastElement - elementsPerPage; //3-3, 6-3, 9-3
+  const currentElements = elements.slice(indexFirstElement, indexLastElement); //slice(0,3); 3,6; 6,9
 
-
-  function updateData(event, page){
+  function updateData(event, page) {
     console.log(page);
-    setCurrentPage(page)
+    setCurrentPage(page);
   }
 
   return (
@@ -32,23 +33,31 @@ function StudentPage() {
           <div className={style.image}></div>
         </div>
         <div className={style.list}>
-            {
-                currentElements.map((el, index)=>{
-                    return (
-                        <div key={index} className={style.courseCart} >
-                            <div className={style.courseImg}></div>
-                            <div className={style.courseOuter}>
-                                <h2>{el.name}</h2>
-                                <p>{el.text}</p>
-                            </div>
-                        </div>
-                    )
-                })
-            }
+          {currentElements.map((el, index) => {
+            return (
+              <div key={index}>
+              <Link to={`/course/${el.id}`}>
+                <div  className={style.courseCart}>
+                  <div className={style.courseImg}></div>
+                  <div className={style.courseOuter}>
+                    <h2>{el.name}</h2>
+                    <p>{el.text}</p>
+                  </div>
+                </div>
+              </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
       <div>
-      <Pagination value={currentPage} onChange={updateData} count={Math.ceil(array.length / elementsPerPage)} color="primary" hideNextButton={true} />
+        <Pagination
+          value={currentPage}
+          onChange={updateData}
+          count={Math.ceil(array.length / elementsPerPage)}
+          color="primary"
+          hideNextButton={false}
+        />
       </div>
       <Footer />
     </>
