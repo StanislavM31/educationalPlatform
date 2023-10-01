@@ -2,14 +2,29 @@ import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import style from "./style.module.css";
 import Input from "../../components/Input/Input"
-import { useState } from "react";
 import axios from "axios";
+import { MyContext } from "../../Context/Context";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function AuthPage() {
+  const{logIn} = useContext(MyContext)
+  const navigate = useNavigate()
+
   const arr = ["email", "pwd"];
   const [value, setValue] = useState({email:"", pwd:""});
   async function sendDataAuthorization(){
-    const result = await axios.post('http://localhost:3001/api/auth', value);
+    const result = await axios.post('http://localhost:3001/api/auth', value, {
+      withCredentials: true,
+    });
+
+
+    if(result.data.length) {
+      console.log('Вы зарегистрировались успешно');
+      logIn();
+      navigate("/");
+    };
     console.log(result);
   }
   return (
