@@ -8,13 +8,14 @@
   align-items: center;
   width: 1220px;
   margin: auto;
+
 }
 .wrapper .btns {
   display: flex;
   align-items: center;
   gap: 24px;
 }
-.wrapper .btns .loginBtn {
+.wrapper .btns {
   color: #000;
   font: 700 16px "Montserrat";
 }

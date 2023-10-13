@@ -19,8 +19,8 @@ function Header() {
         <Link to={"/"}>Hschool</Link>
       </h1>
       {token ? (
-        <div className={style.regBtn}>
-          <p onClick={logOutUser} className={style.loginBtn}>Sign Out</p>
+        <div className={style.btns}>
+          <p onClick={logOutUser} className={style.regBtn}>Sign Out</p>
         </div>
       ) : (
         <div className={style.btns}>
