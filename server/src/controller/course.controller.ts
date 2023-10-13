@@ -33,8 +33,8 @@ course.delete('/:id', async (req:Request, res:Response)=>{
 })
 course.post('/', isValidCourseBody, async (req:Request, res:Response)=>{
     try {
-        const {course} = req.body;
-        const data = await createCourse(course);
+        const {course, description} = req.body;
+        const data = await createCourse(course, description);
         buildResponse(res, 200, data);
     } catch (error:any) {
         buildResponse(res, 400, error.message)
@@ -43,8 +43,8 @@ course.post('/', isValidCourseBody, async (req:Request, res:Response)=>{
 course.put('/:id', isValidCourseBody, isValidId, async(req:Request, res:Response)=>{
     try{
         const {id} = req.params;
-        const {course} = req.body;
-        const data = await updateCourse(id , course);
+        const {course, description} = req.body;
+        const data = await updateCourse(id , course, description);
         return buildResponse(res, 200, data);
     } catch (error:any){
         buildResponse(res, 400, error.message)

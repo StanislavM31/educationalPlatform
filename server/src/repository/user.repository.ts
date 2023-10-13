@@ -5,6 +5,7 @@ async function getAllUsersDB(): Promise<iUser[]> {
     const client = await pool.connect();
     const sql = `SELECT * FROM users`;
     const result = (await client.query(sql)).rows;
+    await client.release();
     return result;
 }
 async function createUserDB(name: string, surname: string, email: string, pwd: string): Promise<iUser[]> {
@@ -17,6 +18,7 @@ async function createUserDB(name: string, surname: string, email: string, pwd: s
         return result;
     } catch (error) {
         await client.query('ROLLBACK');
+        await client.release();
         return []
     }
 }
@@ -42,6 +44,7 @@ async function deleteUserByIdDB(id: number): Promise<iUser[]> {
         await client.query("COMMIT")
         return result;
     } catch (error) {
+        await client.release();
         await client.query('ROLLBACK');
         return [];
     }
@@ -56,6 +59,7 @@ async function updateUserByIdDB(id: number, name: string, surname: string, email
         return result;
     } catch (error) {
         await client.query('ROLLBACK');
+        await client.release();
         return [];
     }
 }

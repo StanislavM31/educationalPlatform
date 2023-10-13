@@ -11,6 +11,7 @@ async function registrationDB(name: string, surname: string, email: string, pwd:
         await client.query('COMMIT');
         return result;
     } catch (error) {
+        await client.release();
         await client.query("ROLLBACK");
         return [];
     }
@@ -34,6 +35,7 @@ async function getByEmail(email: string): Promise<iUser[]> {
     const client = await pool.connect();
     const sql = `SELECT * FROM users WHERE email = $1`;
     const result = (await client.query(sql, [email])).rows;
+    await client.release();
     return result
 }
 

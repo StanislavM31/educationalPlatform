@@ -17,8 +17,8 @@ async function deleteCourseById(id): Promise<iCourse[]> {
     return data
 }
 
-async function createCourse(course: string): Promise<iCourse[]> {
-    let data: iCourse[] = await createCourseDB(course);;
+async function createCourse(course: string, description: string): Promise<iCourse[]> {
+    let data: iCourse[] = await createCourseDB(course, description);;
     /* let array:iCourse[] = await getCourse();
     array.filter(element => {
             if(element.course == course) return element
@@ -30,8 +30,8 @@ async function createCourse(course: string): Promise<iCourse[]> {
     if (!data.length) throw new Error(`failed to save course`)
     return data;
 }
-async function updateCourse(course: string, id: number): Promise<iCourse[]> {
-    const data = await updateCourseDB(id, course);
+async function updateCourse( id: string, course: string, description:string): Promise<iCourse[]> {
+    const data = await updateCourseDB(id, course, description);
     if (!data.length) throw new Error(`no such id to update`)
     return data;
 }
