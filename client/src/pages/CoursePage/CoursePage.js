@@ -5,20 +5,29 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import style from "./style.module.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function CoursePage() {
   const { id } = useParams();
   const [element, setElement] = useState({});
+  const [lessons, setLessons] = useState([]);
   useEffect(() => {
 /*     const curElement = array.filter((el) => el.id === id);
     setElement(curElement[0]); */
-    getCourseLesson()
+    getCourseDescription();
+    getCourseLessons();
+    console.log(lessons);
   }, [id]);
 
-  async function getCourseLesson(){
+  async function getCourseDescription(){
     const data = await axios.get(`http://localhost:3001/course/${id}`);
     console.log(data.data[0]);
     setElement(data.data[0])
+  }
+  async function getCourseLessons(){
+    const data = await axios.get(`http://localhost:3001/lesson/${id}`);
+    console.log(data.data);
+    setLessons(data.data);
   }
 
   return (
@@ -39,11 +48,19 @@ export default function CoursePage() {
 
         <div className={style.lesson}>
             <h2>LESSONS</h2>
-          <ul>
-            <li>Test</li>
-            <li>Test</li>
-            <li>Test</li>
-          </ul>
+          <div>
+            {
+              lessons.map((lesson, index)=>{
+                return (
+                  <div key={index}>
+                    <Link to={`#`}>
+                    {lesson.title}
+                    </Link>
+                  </div>
+                )
+              })
+            }
+          </div>
         </div>
       </div>
       <Footer></Footer>
