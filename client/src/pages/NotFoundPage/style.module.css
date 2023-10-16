@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1220px;
+  margin: 4% auto;
+}
+
+.ghost {
+  background-image: url("./ghost-img\ 1.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 394px;
+  height: 413px;
+}
+h1 {
+  margin: 24px 0 24px 0;
+}
+p {
+  font: 500 20px "Space Grotesk";
+  color: #757575;
+}
+
+.goHomebtn {
+  background-color: #2b788b;
+  padding: 13px 0px;
+
+  margin-top: 22px;
+  text-align: center;
+  width: 118px;
+  border-radius: 100px;
+  font: 700px 16px "Montserrat";
+  color: #ffff;
+}
+.goHomebtn:hover {
+  cursor: pointer;
+}

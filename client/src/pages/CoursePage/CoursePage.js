@@ -12,22 +12,22 @@ export default function CoursePage() {
   const [element, setElement] = useState({});
   const [lessons, setLessons] = useState([]);
   useEffect(() => {
-/*     const curElement = array.filter((el) => el.id === id);
+    /*     const curElement = array.filter((el) => el.id === id);
     setElement(curElement[0]); */
     getCourseDescription();
     getCourseLessons();
     console.log(lessons);
   }, [id]);
 
-  async function getCourseDescription(){
+  async function getCourseDescription() {
     const data = await axios.get(`http://localhost:3001/course/${id}`);
     console.log(data.data[0]);
-    setElement(data.data[0])
+    setElement(data.data[0]);
   }
-  async function getCourseLessons(){
-    const data = await axios.get(`http://localhost:3001/lesson/${id}`);
-    console.log(data.data);
-    setLessons(data.data);
+  async function getCourseLessons() {
+    const lessonData = await axios.get(`http://localhost:3001/lesson/${id}`);
+    console.log(lessonData.data);
+    setLessons(lessonData.data);
   }
 
   return (
@@ -38,28 +38,29 @@ export default function CoursePage() {
           <div className={style.flex}>
             <div className={style.img}></div>
             <div className={style.info}>
-              <h2>{element.course}</h2>
+              <h2 className={style.courseName}>{element.course}</h2>
               <p>{element.description}</p>
             </div>
           </div>
 
-          <div className={style.btn}>Go to course</div>
+          <div className={style.btnGo}>Go to course</div>
         </div>
 
         <div className={style.lesson}>
-            <h2>LESSONS</h2>
+          <h2>LESSONS</h2>
           <div>
-            {
-              lessons.map((lesson, index)=>{
-                return (
-                  <div key={index}>
+            {lessons.map((lesson, index) => {
+              return (
+                <div className={style.containerLesson}>
+                  <div key={index} className={style.lessonElement}>
                     <Link to={`#`}>
-                    {lesson.title}
+                      {index+1}.
+                      {lesson.title}
                     </Link>
                   </div>
-                )
-              })
-            }
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

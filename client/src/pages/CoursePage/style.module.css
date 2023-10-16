@@ -2,7 +2,7 @@
   display: flex;
   margin: auto;
   width: max-content;
-  gap:10px;
+  gap: 10px;
 }
 .course {
   width: 572px;
@@ -24,19 +24,39 @@
 }
 .info {
   width: 253px;
-  height: 176px;
+/*   height: 176px; */
   margin-top: 12px;
 }
 .info p {
-    color: #757575;
+  color: #757575;
 }
 .btn {
   text-align: center;
 }
-.lesson{
-    width: 401px;
-    padding: 40px;
-    border-radius: 14px;
-    background: #fff;
-    box-shadow: 0px 22.89813px 45.79626px -11.44906px rgba(52, 41, 39, 0.08);
+.lesson {
+  width: 401px;
+  padding: 40px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0px 22.89813px 45.79626px -11.44906px rgba(52, 41, 39, 0.08);
+  font: 600 16px "Montserrat";
+}
+h2 {
+  font: 400px 32px "Dela Gothic One";
+  margin-bottom: 15px;
+}
+.containerLesson{
+  display: flex;
+  flex-direction: column;
+  gap:14px;
+
+}
+.lessonElement {
+  color:red;
+}
+.btnGo{
+  background-color: #2b788b;
+  border-radius: 14px;
+  padding: 13px 21px;
+  color:#FFFF;
 }
