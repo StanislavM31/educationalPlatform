@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 /* import array from "../../storage/course.json"; */
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -11,24 +11,21 @@ export default function CoursePage() {
   const { id } = useParams();
   const [element, setElement] = useState({});
   const [lessons, setLessons] = useState([]);
-  useEffect(() => {
-    /*     const curElement = array.filter((el) => el.id === id);
-    setElement(curElement[0]); */
+  /*   useEffect(() => {
     getCourseDescription();
     getCourseLessons();
     console.log(lessons);
-  }, [id]);
-
-  async function getCourseDescription() {
+  }, [id]); */
+  useMemo(async () => {
     const data = await axios.get(`http://localhost:3001/course/${id}`);
     console.log(data.data[0]);
     setElement(data.data[0]);
-  }
-  async function getCourseLessons() {
+    /* ex-getCourseDescription(); */
     const lessonData = await axios.get(`http://localhost:3001/lesson/${id}`);
     console.log(lessonData.data);
     setLessons(lessonData.data);
-  }
+    /* ex-getCourseLessons(); */
+  }, [id]);
 
   return (
     <>
@@ -54,8 +51,7 @@ export default function CoursePage() {
                 <div className={style.containerLesson}>
                   <div key={index} className={style.lessonElement}>
                     <Link to={`#`}>
-                      {index+1}.
-                      {lesson.title}
+                      {index + 1}.{lesson.title}
                     </Link>
                   </div>
                 </div>
