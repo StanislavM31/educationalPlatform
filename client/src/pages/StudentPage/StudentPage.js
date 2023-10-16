@@ -48,8 +48,8 @@ function StudentPage() {
                 <div  className={style.courseCart}>
                   <div className={style.courseImg}></div>
                   <div className={style.courseOuter}>
-                    <h2>{el.course}</h2>
-                    <p>{el.description}</p>
+                    <h2 className={style.nameOfCourse}>{el.course}</h2>
+                    <p className={style.descriptionOfCourse}>{el.description}</p>
                   </div>
                 </div>
               </Link>

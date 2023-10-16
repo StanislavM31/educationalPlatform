@@ -20,7 +20,7 @@ function Header() {
       </h1>
       {token ? (
         <div className={style.btns}>
-          <p onClick={logOutUser} className={style.regBtn}>Sign Out</p>
+          <div onClick={logOutUser} className={style.signOutBtn}>Sign Out →</div>
         </div>
       ) : (
         <div className={style.btns}>

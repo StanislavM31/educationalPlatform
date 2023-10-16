@@ -45,3 +45,11 @@
 .courseOuter {
   width: 510px;
 }
+.nameOfCourse {
+  font: 400 32px "Dela Gothic One";
+}
+.descriptionOfCourse {
+  font: 500 16px "Montserrat";
+  color: #757575;
+  line-height: 24px;
+}

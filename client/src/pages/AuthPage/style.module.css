@@ -8,11 +8,17 @@
 .login h1 {
   color: black;
   font: 400 56px "Dela Gothic One";
+  margin: 0;
 }
 .login .loginInfo {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 30px;
+}
+.login .loginInfo div{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 .login div input {
   width: 519px;

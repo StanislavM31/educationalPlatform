@@ -40,7 +40,9 @@ export default function CoursePage() {
             </div>
           </div>
 
-          <div className={style.btnGo}>Go to course</div>
+          <div className={style.btnGo}>
+            <Link to={"/*"}>Go to course</Link>
+          </div>
         </div>
 
         <div className={style.lesson}>
@@ -51,7 +53,7 @@ export default function CoursePage() {
                 <div className={style.containerLesson}>
                   <div key={index} className={style.lessonElement}>
                     <Link to={`#`}>
-                      {index + 1}.{lesson.title}
+                      {index + 1}.{"  "}{lesson.title}
                     </Link>
                   </div>
                 </div>

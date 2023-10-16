@@ -28,3 +28,10 @@
   color: #fff;
   font: 700 16px "Montserrat";
 }
+.signOutBtn{
+  color: black;
+  font: 700 16px "Montserrat";
+}
+.signOutBtn:hover{
+  cursor: pointer;
+}
